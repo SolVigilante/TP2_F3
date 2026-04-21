@@ -1,3 +1,164 @@
 \section{Datos obtenidos: discusión y cálculo de errores}
 
+\subsection{Primera Experiencia}
+
+En la Tabla \ref{tab:resistencias} se pueden observar los valores nominales, medidos y calculados de las resistencias utilizadas. El valor nominal corresponde al brindado por el fabricante, el valor medido al obtenido mediante un óhmetro y el valor calculado al obtenido a partir de las mediciones de tensión y corriente del circuito. Cabe destacar que las tolerancias de las resistencias eran del $5\%$ para los casos de $100\ \Omega$ y $330\ \Omega$, y del $10\%$ para la resistencia de $220\ \Omega$. Las mediciones para $R_1$, $R_2$, $R_3$, serie y paralelo fueron realizadas mediante el circuito de conexión corta. Adicionalmente, para la resistencia de $10\ \mathrm{M\Omega}$ se utilizaron tanto el circuito de conexión corta como el de conexión larga.
+
+\textbf{DEBERIAMOS MENCIONAR LA ECUACUION UTILIZADA}
+
+% Tabla 1 
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{} & \textbf{Nominal} & \textbf{Medido} & \textbf{Calculado} \\
+\hline
+$R_1\ [\Omega]$             & 100   & 98,7  & 101,34 \\
+$R_2\ [\Omega]$             & 220   & 217   & 220,29 \\
+$R_3\ [\Omega]$             & 330   & 324   & 332,61 \\
+Serie $[\Omega]$            & 650   & 639,7 & 665,22 \\
+Paralelo $[\Omega]$         & 56,90 & 56,10 & 57,31  \\
+$10\ \mathrm{M\Omega}$ (cc) & 10    & 9,15  & 4,91   \\
+$10\ \mathrm{M\Omega}$ (cl) & 10    & 9,15  & 9,43   \\
+\hline
+\end{tabular}
+\caption{Comparación de valores nominales, medidos y calculados.}
+\label{tab:resistencias}
+\end{table}
+
+%Tabla 2
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{} & \textbf{Tensión [V]} & \textbf{Corriente [mA]} \\
+\hline
+$R_1$                       & 1,51 & 14,9 \\
+$R_2$                       & 1,52 & 6,9  \\
+$R_3$                       & 1,53 & 4,6  \\
+Serie                       & 1,53 & 2,3  \\
+Paralelo                    & 1,49 & 26   \\
+$10\ \mathrm{M\Omega}$ (cc) & 9,43 & 1,92 \\
+$10\ \mathrm{M\Omega}$ (cl) & 9,43 & 1    \\
+\hline
+\end{tabular}
+\caption{Tensión y corriente para el cálculo de resistencias.}
+\label{tab:mediciones}
+\end{table}
+
+
+\subsection{Segunda Experiencia}
+
+Para la segunda experiencia se utilizó un circuito con dos baterías, donde en una de las experiencias la batería de $1,5\ V$ se encontraba en polaridad directa y en la otra se encontraba con polaridad invertida.
+\textbf{DEBERIAMOS REFERENCIAR LOS CIRCUITOS}
+
+
+
+Los valores utilizados fueron los presentes en las siguientes Tablas:
+
+% Tabla 3
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{Componente} & \textbf{Nominal [$\Omega$]} & \textbf{Medido [$\Omega$]} \\
+\hline
+$R_1$ & 100 & 99,2 \\
+$R_2$ & 220 & 216  \\
+$R_3$ & 330 & 323  \\
+\hline
+\end{tabular}
+\captionof{table}{Resistencias nominales y medidas.}
+\label{tab:resistencias_nom}
+\end{table}
+
+
+%Tabla 4
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{Componente} & \textbf{Nominal [V]} & \textbf{Medido [V]} \\
+\hline
+$B_1$ & 9   & 9,43 \\
+$B_2$ & 1,5 & 1,54 \\
+\hline
+\end{tabular}
+\captionof{table}{Baterías nominales y medidas.}
+\label{tab:baterias_nom}
+\end{table}
+
+Para el caso en el que la batería no estaba invertida (caso positivo hacia abajo), mediante la aplicación de mallas y ley de nodos, se obtuvieron las siguientes ecuaciones:
+
+\begin{equation}
+    9V-I_1 \cdot100\ \Omega-(I_1-I_2) \cdot 220\ \Omega = 0\ V    
+\end{equation}
+\begin{equation}
+    -(I_2-I_1)\cdot 220\ \Omega -I_2\cdot 330\ \Omega +1.5\ V = 0\ V   
+\end{equation}
+\begin{equation}
+    I_3 = I_1 - I_2 
+\end{equation}
+
+
+A partir de las ecuaciones y los valores de los componentes, se obtuvieron los valores ideales de la corriente sobre cada uno de los componentes, en este caso se utilizaron los valores ideales de los componentes. Al mismo tiempo, se realizó una simulación en el programa llamado LTSpice, en el cual se obtuvieron los valores de las corrientes sobre cada componente, en este caso se usaron los valores reales de los componentes. Y, por último, mediante el uso de amperímetros, se obtuvieron las corrientes reales de cada uno de los componentes.
+
+
+%Tabla 5
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{} & \textbf{Real [mA]} & \textbf{Ideal [mA]} & \textbf{Sim. [mA]} \\
+\hline
+$B_1$ & 35,8 & 41,38 & 38,54  \\
+$R_1$ & 35,8 & 41,38 & 38,54  \\
+$R_2$ & 26,2 & 22,1  & 25,955 \\
+$R_3$ & 9,58 & 19,28 & 12,588 \\
+$B_2$ & 9,58 & 19,28 & 12,588 \\
+\hline
+\end{tabular}
+\captionof{table}{Corrientes con batería NO invertida.}
+\label{tab:no_invertida}
+\end{table}
+
+
+
+
+Para el caso en el que la batería estaba invertida (caso positivo hacia arriba), mediante la aplicación de mallas y ley de nodos, se obtuvieron las siguientes ecuaciones:
+
+\begin{equation}
+    9V-I_1 \cdot100\ \Omega-(I_1-I_2) \cdot 220\ \Omega = 0\ V    
+\end{equation}
+\begin{equation}
+    -(I_2-I_1)\cdot 220\ \Omega -I_2\cdot 330\ \Omega -1.5\ V = 0\ V   
+\end{equation}
+\begin{equation}
+    I_3 = I_1 - I_2 
+\end{equation}
+
+
+A partir de las nuevas ecuaciones y los valores de los componentes,e obtuvieron los valores de corriente ideales, simulados y medidos siguiendo el mismo procedimiento que en el caso anterior.
+
+%Tabla 6
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\rowcolor{blue!30} \textbf{} & \textbf{Real [mA]} & \textbf{Ideal [mA]} & \textbf{Sim. [mA]} \\
+\hline
+$B_1$ & 42,7 & 36,2  & 43,947 \\
+$R_1$ & 42,7 & 36,2  & 43,947 \\
+$R_2$ & 23   & 24,45 & 23,475 \\
+$R_3$ & 19,7 & 11,75 & 20,468 \\
+$B_2$ & 19,7 & 11,75 & 20,468 \\
+\hline
+\end{tabular}
+\captionof{table}{Corrientes con batería SÍ invertida.}
+\label{tab:invertida}
+\end{table}
+
+
 \newpage
