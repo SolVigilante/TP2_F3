@@ -7,19 +7,15 @@
 
 
     En la primera experiencia se puede observar que las magnitudes medidas defieren de las
-    calculadas y de las nominales (véase la Tabla \textbf{AÑADIR REFERENCIA A LA TABLA DE RESISTENCIAS}). La diferencia entre las magnitudes calculadas y las nominales se explica pues difieren en un porcentaje menor al 5\%, lo cual es coherente con las tolerancias indicadas por el fabricante.Por otro lado, el error asociado al cálculo de la resistencia comparada con el valor medido es menor que el 5\%. Este error puede provenir deconsiderar idealidad de los instrumentos. Por ejemplo, no se han tenido en cuenta las resistencias internas de los multímetros que han funcionado como voltímetros y amperímetros. 
+    calculadas y de las nominales (véase la Tabla \ref{tab:resistencias}). La diferencia entre las magnitudes calculadas y las nominales se explica pues difieren en un porcentaje menor al 5\%, lo cual es coherente con las tolerancias indicadas por el fabricante.Por otro lado, el error asociado al cálculo de la resistencia comparada con el valor medido es menor que el 5\%. Este error puede provenir deconsiderar idealidad de los instrumentos. Por ejemplo, no se han tenido en cuenta las resistencias internas de los multímetros que han funcionado como voltímetros y amperímetros. 
 
 \subsubsection{Análisis del circuito corto y circuito largo}
 
-    Para la segunda experiencia se observa una gran diferencia en la magnitud de la resistencia calculada por los dos métodos propuestos. Este resultado experimental se puede explicar por el hecho de que en el circuito \textbf{REFERENCIA AL CIRCUITO CORTO} (que corresponde a la columna X de la Tabla \textbf{REFERENCIA A LA TABLA DE LA PARTE B}) es la manera correcta de medir la tensión sobre la resistencia mientras que el circuito \textbf{REFERENCIA AL CIRCUITO LARGO} es la manera correcta de medir la corriente sobre la rama perteneciente a la resistencia. 
+    Para la segunda experiencia se observa una gran diferencia en la magnitud de la resistencia calculada por los dos métodos propuestos. Este resultado experimental se puede explicar por el hecho de que en el circuito \ref{fig:conexion_corta} es la manera correcta de medir la tensión sobre la resistencia mientras que el circuito \ref{fig:conexion_larga} es la manera correcta de medir la corriente sobre la rama perteneciente a la resistencia. 
 
-    El circuito \textbf{REFERENCIA AL CIRCUITO CC} es la manera de medir la tensión real sobre la resistencia pues sus terminales están directamente conectadas a los terminales de la resistencia en paralelo. Además, el voltímetro cuenta con una resistencia en serie muy grande de forma tal que no afecte el circuito. En este caso, el amperímetro no se encuentra en la misma rama que la resistencia y entonces no medirá correctamente la corriente que pasa por ella. 
+    El error producto de calcular la resistencia con la configuración del esquema \ref{fig:conexion_corta} es del 45,6\%. Este error es significativamente alto pues la corriente es del orden de los $\mu A$ y un pequeño error en la medición de la misma genera un error mucho más grande en el cálculo de la resistencia. 
 
-    El circuito \textbf{REFERENCIA AL CIRCUITO CL} es la manera correcta de medir la corriente que circula por la resistencia pues el amperímetro se encuentra en la misma rama que la resistencia y como tiene una resistencia interma muy pequeña en paralelo no afecta el resto del circuito. 
-
-    El error producto de calcular la resistencia con la configuración del esquema \textbf{REFERENCIA AL CIRCUITO CC} es del 45,6\%. Este error es significativamente alto pues la corriente es del orden de los $\mu A$ y un pequeño error en la medición de la misma genera un error mucho más grande en el cálculo de la resistencia. 
-
-    El error producto de calcular la resistencia con la configuración del esqema \textbf{REFERENCIA AL CIRCUITO CL} es del 3,06\%. Este error es significativamente bajo pues, al ser una corriente tan pequeña una mejora en la precisión de la medición genera una gran mejora la precisión del cálculo de la resistencia. 
+    El error producto de calcular la resistencia con la configuración del esqema \ref{fig:conexion_larga} es del 3,06\%. Este error es significativamente bajo pues, al ser una corriente tan pequeña una mejora en la precisión de la medición genera una gran mejora la precisión del cálculo de la resistencia. 
     
 
 \subsubsection{Análisis de la Resistencia Equivalente}
