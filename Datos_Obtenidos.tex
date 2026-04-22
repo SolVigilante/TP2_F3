@@ -1,10 +1,11 @@
+\pgfplotsset{compat=1.18}
+
 \section{Datos obtenidos: discusión y cálculo de errores}
 
 \subsection{Primera Experiencia}
-
 En la Tabla \ref{tab:resistencias} se pueden observar los valores nominales, medidos y calculados de las resistencias utilizadas. El valor nominal corresponde al brindado por el fabricante, el valor medido al obtenido mediante un óhmetro y el valor calculado al obtenido a partir de las mediciones de tensión y corriente del circuito. Cabe destacar que las tolerancias de las resistencias eran del $5\%$ para los casos de $100\ \Omega$ y $330\ \Omega$, y del $10\%$ para la resistencia de $220\ \Omega$. Las mediciones para $R_1$, $R_2$, $R_3$, serie y paralelo fueron realizadas mediante el circuito de conexión corta. Adicionalmente, para la resistencia de $10\ \mathrm{M\Omega}$ se utilizaron tanto el circuito de conexión corta como el de conexión larga.
+Las ecuaciones utilizadas para la realización de los calculos fueron las Ec. \ref{Ley Nodos} y \ref{Ley Mallas}.
 
-\textbf{DEBERIAMOS MENCIONAR LA ECUACUION UTILIZADA}
 
 % Tabla 1 
 \begin{table}[H]
@@ -52,8 +53,48 @@ $10\ \mathrm{M\Omega}$ (cl) & 9,43 & 1    \\
 \subsection{Segunda Experiencia}
 
 Para la segunda experiencia se utilizó un circuito con dos baterías, donde en una de las experiencias la batería de $1,5\ V$ se encontraba en polaridad directa y en la otra se encontraba con polaridad invertida.
-\textbf{DEBERIAMOS REFERENCIAR LOS CIRCUITOS}
+Los circuito utilizados fueron los siguientes:
 
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{circuitikz}[scale=0.6, transform shape]
+    \draw
+    (0,0) to[battery1, invert, l=9V] (0,3)
+    (0,3) to[rmeter, t=A] (2,3)
+    (2,3) to[R, l=100$\Omega$] (4,3)
+    (4,3) to[R, l=330$\Omega$] (6,3)
+    (6,3) to[rmeter, t=A] (8,3)
+    (8,3) to[battery1, invert, l=1.5V] (8,0)
+    (8,0) -- (0,0)
+    (4,3) to[R, l=220$\Omega$] (4,1.5)
+    (4,1.5) to[rmeter, t=A] (4,0)
+    ;
+\end{circuitikz}
+\captionof{figure}{Circuito con batería directa.}
+\label{fig:circuito_directo}
+\end{minipage}
+\hspace{0.05\textwidth}
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{circuitikz}[scale=0.6, transform shape]
+    \draw
+    (0,0) to[battery1, invert, l=9V] (0,3)
+    (0,3) to[rmeter, t=A] (2,3)
+    (2,3) to[R, l=100$\Omega$] (4,3)
+    (4,3) to[R, l=330$\Omega$] (6,3)
+    (6,3) to[rmeter, t=A] (8,3)
+    (8,3) to[battery1, invert, l=1.5V] (8,0)
+    (8,0) -- (0,0)
+    (4,3) to[R, l=220$\Omega$] (4,1.5)
+    (4,1.5) to[rmeter, t=A] (4,0)
+    ;
+\end{circuitikz}
+\captionof{figure}{Circuito con batería invertida.}
+\label{fig:circuito_invertido}
+\end{minipage}
+\end{figure}
 
 
 Los valores utilizados fueron los presentes en las siguientes Tablas:
@@ -74,7 +115,6 @@ $R_3$ & 330 & 323  \\
 \label{tab:resistencias_nom}
 \end{table}
 
-
 %Tabla 4
 \begin{table}[H]
 \centering
@@ -90,17 +130,17 @@ $B_2$ & 1,5 & 1,54 \\
 \label{tab:baterias_nom}
 \end{table}
 
-Para el caso en el que la batería no estaba invertida (caso positivo hacia abajo), mediante la aplicación de mallas y ley de nodos, se obtuvieron las siguientes ecuaciones:
+Para el caso en el que la batería de $1.5\ V$ se encontraba en polaridad directa, aplicando las leyes de Kirchhoff se obtuvieron las siguientes ecuaciones:
 
-\begin{equation}
+\begin{equation*}
     9V-I_1 \cdot100\ \Omega-(I_1-I_2) \cdot 220\ \Omega = 0\ V    
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     -(I_2-I_1)\cdot 220\ \Omega -I_2\cdot 330\ \Omega +1.5\ V = 0\ V   
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     I_3 = I_1 - I_2 
-\end{equation}
+\end{equation*}
 
 
 A partir de las ecuaciones y los valores de los componentes, se obtuvieron los valores ideales de la corriente sobre cada uno de los componentes, en este caso se utilizaron los valores ideales de los componentes. Al mismo tiempo, se realizó una simulación en el programa llamado LTSpice, en el cual se obtuvieron los valores de las corrientes sobre cada componente, en este caso se usaron los valores reales de los componentes. Y, por último, mediante el uso de amperímetros, se obtuvieron las corrientes reales de cada uno de los componentes.
@@ -120,24 +160,23 @@ $R_3$ & 9,58 & 19,28 & 12,588 \\
 $B_2$ & 9,58 & 19,28 & 12,588 \\
 \hline
 \end{tabular}
-\captionof{table}{Corrientes con batería NO invertida.}
+\captionof{table}{Corrientes con batería no invertida.}
 \label{tab:no_invertida}
 \end{table}
 
 
 
 
-Para el caso en el que la batería estaba invertida (caso positivo hacia arriba), mediante la aplicación de mallas y ley de nodos, se obtuvieron las siguientes ecuaciones:
-
-\begin{equation}
+Para el caso en el que la batería de $1,5\ V$ se encontraba con polaridad invertida, las ecuaciones de mallas obtenidas mediante las leyes de Kirchhoff fueron las siguientes:"
+\begin{equation*}
     9V-I_1 \cdot100\ \Omega-(I_1-I_2) \cdot 220\ \Omega = 0\ V    
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     -(I_2-I_1)\cdot 220\ \Omega -I_2\cdot 330\ \Omega -1.5\ V = 0\ V   
-\end{equation}
-\begin{equation}
+\end{equation*}
+\begin{equation*}
     I_3 = I_1 - I_2 
-\end{equation}
+\end{equation*}
 
 
 A partir de las nuevas ecuaciones y los valores de los componentes,e obtuvieron los valores de corriente ideales, simulados y medidos siguiendo el mismo procedimiento que en el caso anterior.
@@ -156,7 +195,7 @@ $R_3$ & 19,7 & 11,75 & 20,468 \\
 $B_2$ & 19,7 & 11,75 & 20,468 \\
 \hline
 \end{tabular}
-\captionof{table}{Corrientes con batería SÍ invertida.}
+\captionof{table}{Corrientes con batería invertida.}
 \label{tab:invertida}
 \end{table}
 

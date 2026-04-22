@@ -1,4 +1,91 @@
 \section{Introducción teórica}
 
+Para poder entender la práctica, es necesario introducir algunos conceptos teóricos. En particular, se van a utilizar las leyes de Kirchhoff, la ley de Ohm, el cálculo de resistencias en serie y en paralelo, y los métodos de medición de resistencias por conexión corta y larga.
+A continuación se definen algunos conceptos básicos de circuitos. Un nodo es el punto donde se unen dos o más ramas, siendo cada rama el elemento o conductor que conecta dos nodos. Una malla, por su parte, es cualquier recorrido cerrado dentro del circuito. A partir de ello, se formulan las leyes de Kirchhoff:
+
+La ley de nodos se deriva del principio de conservación de carga eléctrica y establece que la suma algebraica de todas las corrientes que ingresan y egresan de un nodo es igual a cero, es decir, toda la corriente que entra a un nodo debe salir de él.
+
+\begin{equation}
+    \sum I_{entrada}=\sum I_{salida}
+    \label{Ley Nodos}
+\end{equation}
+
+La ley de mallas establece que la suma algebraica de todas las diferencias de potencial a lo largo de cualquier malla cerrada de un circuito es igual a cero. Esta ley también se deriva del principio de conservación de energía.
+
+\begin{equation}
+    \sum \Delta V_i=0
+    \label{Ley Mallas}
+\end{equation}
+
+
+Para las mediciones realizadas en este trabajo práctico, se utilizaron dos conexiones para la medición de tensión y corriente, utilizando un amperímetro y un voltímetro. Las conexiones fueron conexión corta y conexión larga. Ambas se presentan a continuación:
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{circuitikz}
+    \draw
+    (0,0) to[battery1] (0,3)
+    (0,3) to[switch] (2,3)
+    (2,3) to[rmeter, t=A] (4,3)
+    (4,3) -- (4,2.5) node[left] {b}
+    (4,2.5) to[R] (4,0.5) node[left] {a}
+    (4,0.5) -- (4,0)
+    (4,0) -- (0,0)
+    (4,2.5) to[short] (5,2.5)
+    (5,2.5) to[rmeter, t=V] (5,0.5)
+    (5,0.5) to[short] (4,0.5)
+    ;
+\end{circuitikz}
+\captionof{figure}{Circuito de conexión corta.}
+\label{fig:conexion_corta}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{circuitikz}
+    \draw
+    (0,0) to[battery1] (0,3)
+    (0,3) to[switch] (2,3)
+    (2,3) -- (2,3) node[above] {c}
+    (2,3) to[rmeter, t=A] (2,1.5) node[right] {b}
+    (2,1.5) to[R] (2,0) node[below] {a}
+    (2,0) -- (0,0)
+    (2,3) to[short] (4,3)
+    (4,3) to[rmeter, t=V] (4,0)
+    (4,0) -- (2,0)
+    ;
+\end{circuitikz}
+\captionof{figure}{Circuito de conexión larga.}
+\label{fig:conexion_larga}
+\end{minipage}
+\end{figure}
+
+
+El circuito \ref{fig:conexion_corta} es la manera de medir la tensión real sobre la resistencia pues sus terminales están directamente conectadas a los terminales de la resistencia en paralelo. Además, el voltímetro cuenta con una resistencia en serie muy grande de forma tal que no afecte el circuito. En este caso, el amperímetro no se encuentra en la misma rama que la resistencia y entonces no medirá correctamente la corriente que pasa por ella. 
+
+ El circuito \ref{fig:conexion_larga} es la manera correcta de medir la corriente que circula por la resistencia pues el amperímetro se encuentra en la misma rama que la resistencia y como tiene una resistencia interma muy pequeña en paralelo no afecta el resto del circuito. 
+
+Otro concepto interesente para el presente informe es el de Ley de Ohm. La Ley de Ohm macroscópica plantea una relación lineal entre la corriente y la tensión que pasa por un componente. La tensión sobre un componente óhmico sigue la siguiente ecuación: 
+\begin{equation}
+\label{Ley de ohm}
+    V = I\cdot R
+\end{equation}
+
+A partir de esta ley, se puede sacar como conclusiones las fórmulas para la restistencia equivalente de resistencias en serie o en paralelo. Las resistencias que se consideran en serie son aquellas que se encuentran en una misma rama y por lo tanto por ellas circula la misma corriente. Las resistencias en serie son aquellas que se encuentran a la misma tensión pues están conectadas por los mismos dos nodos. De la ecuación \ref{Ley de ohm} se desprende:
+
+Para las resistencias en serie:
+\begin{equation}
+\label{Ley de ohm}
+    R_{Eq} = \sum R_i
+\end{equation}
+
+Para las Resistencias en paralelo:
+\begin{equation}
+\label{Ley de ohm}
+   \frac{1}{R_{Eq}}  = \sum \frac{1}{R_i}
+\end{equation}
+
 
 \newpage
